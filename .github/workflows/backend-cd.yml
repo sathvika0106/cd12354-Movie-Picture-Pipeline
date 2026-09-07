@@ -115,4 +115,4 @@ jobs:
         run: |
           kustomize edit set image backend=$ECR_REGISTRY/backend:$IMAGE_TAG
           kustomize build . | kubectl apply -f -
-          kubectl rollout status deployment/backend
+          kubectl rollout status deployment/backend --timeout=120s
